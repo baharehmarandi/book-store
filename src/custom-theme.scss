@@ -1,0 +1,23 @@
+//@import '~primeng/resources/themes/bluesky/theme.css';
+@import "primeng/resources/themes/arya-blue/theme.css";
+
+.p-input-icon-left{
+  background-color: #272727!important;
+  border-radius: 12px;
+}
+
+.p-input-icon-left:focus{
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25)!important;
+  border-radius: 12px;
+  border: 1px solid #000;
+}
+
+.p-inputtext{
+  border-radius: 12px;
+}
+
+.p-inputtext:focus{
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25)!important;
+  border-radius: 12px;
+  border: 1px solid #000;
+}
