@@ -1,9 +1,9 @@
-//@import '~primeng/resources/themes/bluesky/theme.css';
 @import "primeng/resources/themes/arya-blue/theme.css";
 
 .p-input-icon-left{
   background-color: #272727!important;
   border-radius: 12px;
+  outline: 1px solid #000;
 }
 
 .p-input-icon-left:focus{
@@ -14,10 +14,49 @@
 
 .p-inputtext{
   border-radius: 12px;
+  outline: 1px solid #000;
 }
 
 .p-inputtext:focus{
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25)!important;
   border-radius: 12px;
   border: 1px solid #000;
+}
+
+.p-button{
+  color: #fff;
+  background: #272727 !important;
+  border: none !important;
+}
+
+.p-button:hover{
+  background: none!important;
+}
+.p-button-icon-only:hover{
+  color: #fff;
+}
+
+.card{
+  --bs-card-bg: none !important;
+}
+
+.p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
+  background-color: #fff!important;
+}
+
+.p-carousel .p-carousel-indicators .p-carousel-indicator button {
+  border-radius: 5px;
+}
+
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link{
+  color: #343434;
+}
+
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link{
+  color: #ffffff;
+  border-bottom: 1px solid white;
+}
+
+.p-carousel-items-content{
+  cursor: pointer;
 }

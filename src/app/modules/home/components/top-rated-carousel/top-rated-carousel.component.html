@@ -1,0 +1,24 @@
+<div class="card">
+  <p-carousel [value]="images"
+              [numVisible]="1"
+              [numScroll]="1"
+              [circular]="true"
+              [responsiveOptions]="responsiveOptions"
+              [showNavigators]="showNavigator"
+              [autoplayInterval]="3000">
+    <ng-template let-image pTemplate="items">
+      <div class="position-relative m-2 text-center">
+        <div class="mb-3 top-rated-image-container position-relative">
+          <img [src]="image.imageUrl" [alt]="image.alt" class="top-rated-image w-100">
+          <div class="image-color "></div>
+        </div>
+        <div class="sm:absolute position-relative text-btn">
+          <span class="text-white carousel-title md:text-5xl text-md mb-3 mb-md-0">{{image.title}}</span>
+          <div class="car-buttons">
+            <p-button (onClick)="onClick(image.link)" label="see more" styleClass="p-button-rounded" class="see-more-btn"></p-button>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>
+</div>

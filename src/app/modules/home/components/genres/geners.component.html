@@ -1,0 +1,18 @@
+<div class="mt-5">
+  <h2 class="text-white">GENRES</h2>
+  <p-tabView [(activeIndex)]="activeTab">
+    <p-tabPanel>
+      <ng-template pTemplate="header">
+        <span [ngClass]="activeTab === 0 ? 'active-tab' : 'tab'">Movie</span>
+      </ng-template>
+      <app-genre [genres]="(movieGenres$ | async) ?? []"></app-genre>
+    </p-tabPanel>
+
+    <p-tabPanel>
+      <ng-template pTemplate="header">
+        <span [ngClass]="activeTab === 1 ? 'active-tab' : 'tab'">Tv series</span>
+      </ng-template>
+      <app-genre [genres]="(tvGenres$ | async) ?? []"></app-genre>
+    </p-tabPanel>
+  </p-tabView>
+</div>

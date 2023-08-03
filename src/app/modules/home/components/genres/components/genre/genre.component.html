@@ -1,0 +1,9 @@
+<p-carousel [value]="genres??[]" [numVisible]="6" [numScroll]="3" [circular]="true" [responsiveOptions]="responsiveOptions"
+[showIndicators]="false">
+  <ng-template let-genre pTemplate="item">
+    <div class="genre border-1 surface-border border-round m-2 text-center py-5 px-3"
+    (click)="onShowGenreMovies(genre)">
+      <span>{{genre.name}}</span>
+    </div>
+  </ng-template>
+</p-carousel>
