@@ -1,0 +1,47 @@
+<div *ngFor="let movieList of movieLists" class="mt-5">
+  <div class="d-flex flex-row justify-content-between">
+    <h3 class="text-white">{{movieList.name}}</h3>
+    <a class="see-more-link d-flex align-items-center"
+        routerLink="https://google.com">
+      <span>See more</span>
+      <i class="pi pi-angle-right"></i>
+    </a>
+  </div>
+  <p-carousel *ngIf="movieList.name === 'Popular movies'"
+              [value]="(popularMovie$ | async) ?? []"
+              [numVisible]="4"
+              [numScroll]="4"
+              [circular]="false"
+              [responsiveOptions]="responsiveOptions"
+              [showIndicators]="false"
+              [showNavigators]="showNavigator">
+    <ng-template let-movieList pTemplate="item">
+      <app-cart [movie] = "movieList"></app-cart>
+    </ng-template>
+  </p-carousel>
+
+  <p-carousel *ngIf="movieList.name === 'Now playing movies'"
+              [value]="(nowPlayingMovie$ | async) ?? []"
+              [numVisible]="4"
+              [numScroll]="4"
+              [circular]="false"
+              [responsiveOptions]="responsiveOptions"
+              [showIndicators]="false"
+              [showNavigators]="showNavigator">
+    <ng-template let-movieList pTemplate="item">
+      <app-cart [movie] = "movieList"></app-cart>
+    </ng-template>
+  </p-carousel>
+
+  <p-carousel *ngIf="movieList.name === 'Upcoming movies'"
+              [value]="(upComingMovie$ | async) ?? []"
+              [numVisible]="4" [numScroll]="4"
+              [circular]="false"
+              [responsiveOptions]="responsiveOptions"
+              [showIndicators]="false"
+              [showNavigators]="showNavigator">
+    <ng-template let-movieList pTemplate="item">
+      <app-cart [movie] = "movieList"></app-cart>
+    </ng-template>
+  </p-carousel>
+</div>

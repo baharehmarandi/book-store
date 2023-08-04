@@ -1,7 +1,7 @@
 import {createFeatureSelector, createSelector} from "@ngrx/store";
 import {MovieState} from "../reducers/movie.reducers";
 
-export const selectMovie = createFeatureSelector<MovieState>('movie')
+export const selectMovie = createFeatureSelector<MovieState>('movie');
 
 export const selectPopularMovieState = createSelector(selectMovie, (state:MovieState) => state.popularMovie);
 

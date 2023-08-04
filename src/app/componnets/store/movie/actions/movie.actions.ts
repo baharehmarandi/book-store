@@ -9,7 +9,7 @@ export const PopularMovieActions = createActionGroup({
     'Load PopularMovies Success': props<{payload: IResults[]}>(),
     'Load PopularMovies Failure': props<{error: HttpErrorResponse}>(),
   }
-})
+});
 
 export const UpComingMovieActions = createActionGroup({
   source: 'MovieUpComing',
@@ -18,7 +18,7 @@ export const UpComingMovieActions = createActionGroup({
     'Load UpComingMovies Success': props<{payload: IResults[]}>(),
     'Load UpComingMovies Failure': props<{error: HttpErrorResponse}>(),
   }
-})
+});
 
 export const NowPlayingMovieActions = createActionGroup({
   source: 'MovieNowPlaying',
@@ -27,4 +27,4 @@ export const NowPlayingMovieActions = createActionGroup({
     'Load NowPlayingMovies Success': props<{payload: IResults[]}>(),
     'Load NowPlayingMovies Failure': props<{error: HttpErrorResponse}>(),
   }
-})
+});

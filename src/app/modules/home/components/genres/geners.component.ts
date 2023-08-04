@@ -24,9 +24,7 @@ export class GenersComponent implements OnInit {
   }
 
   ngOnInit(): void{
-
     this.store.dispatch(MovieGenresActions.loadMovieGenres());
     this.store.dispatch(TvGenresActions.loadTvGenres());
   }
-
 }

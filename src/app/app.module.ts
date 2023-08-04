@@ -18,6 +18,8 @@ import {GenresEffects} from "./componnets/store/genres/effects/genres.effects";
 import {HttpClientModule} from "@angular/common/http";
 import {MovieEffects} from "./componnets/store/movie/effects/movie.effects";
 import {movieReducer} from "./componnets/store/movie/reducers/movie.reducers";
+import {tvSeriesReducer} from "./componnets/store/tv-series/reducers/tvSeries.reducers";
+import {TvSeriesEffects} from "./componnets/store/tv-series/effects/tvSeries.effects";
 
 @NgModule({
   declarations: [
@@ -34,9 +36,9 @@ import {movieReducer} from "./componnets/store/movie/reducers/movie.reducers";
     TagModule,
     NgOptimizedImage,
     HomeModule,
-    StoreModule.forRoot({genres: genresReducer, movie: movieReducer} ),
+    StoreModule.forRoot({genres: genresReducer, movie: movieReducer, tvSeries: tvSeriesReducer} ),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    EffectsModule.forRoot([GenresEffects, MovieEffects]),
+    EffectsModule.forRoot([GenresEffects, MovieEffects, TvSeriesEffects]),
     HttpClientModule
   ],
   providers: [],

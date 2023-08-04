@@ -1,0 +1,48 @@
+<div *ngFor="let tvSeriesList of tvSeriesLists" class="mt-5">
+  <div class="d-flex flex-row justify-content-between">
+    <h3 class="text-white">{{tvSeriesList.name}}</h3>
+    <a class="see-more-link d-flex align-items-center"
+       routerLink="https://google.com">
+      <span>See more</span>
+      <i class="pi pi-angle-right"></i>
+    </a>
+  </div>
+  <p-carousel *ngIf="tvSeriesList.name === 'Popular tv series'"
+              [value]="(popularTvSeries$ | async) ?? []"
+              [numVisible]="4"
+              [numScroll]="4"
+              [circular]="false"
+              [responsiveOptions]="responsiveOptions"
+              [showIndicators]="false"
+              [showNavigators]="showNavigator">
+    <ng-template let-tvSeriesList pTemplate="item">
+      <app-tv-series-card [tvSeries]="tvSeriesList"></app-tv-series-card>
+    </ng-template>
+  </p-carousel>
+
+  <p-carousel *ngIf="tvSeriesList.name === 'On the air tv series'"
+              [value]="(onTheAirTvSeries$ | async) ?? []"
+              [numVisible]="4"
+              [numScroll]="4"
+              [circular]="false"
+              [responsiveOptions]="responsiveOptions"
+              [showIndicators]="false"
+              [showNavigators]="showNavigator">
+    <ng-template let-tvSeriesList pTemplate="item">
+      <app-tv-series-card [tvSeries]="tvSeriesList"></app-tv-series-card>
+    </ng-template>
+  </p-carousel>
+
+  <p-carousel *ngIf="tvSeriesList.name === 'Airing today tv series'"
+              [value]="(airingTodayTvSeries$ | async) ?? []"
+              [numVisible]="4" [numScroll]="4"
+              [circular]="false"
+              [responsiveOptions]="responsiveOptions"
+              [showIndicators]="false"
+              [showNavigators]="showNavigator">
+    <ng-template let-tvSeriesList pTemplate="item">
+      <app-tv-series-card [tvSeries]="tvSeriesList"></app-tv-series-card>
+    </ng-template>
+  </p-carousel>
+</div>
+

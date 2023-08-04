@@ -9,6 +9,9 @@ import {PrimeNgModule} from "../../shared/prime-ng/prime-ng.module";
 import { GenreComponent } from './components/genres/components/genre/genre.component';
 import { MovieItemsComponent } from './components/movie-items/movie-items.component';
 import { CartComponent } from './components/movie-items/components/cart/cart.component';
+import {MovieComponent} from "./components/movie-items/components/movie/movie.component";
+import { TvSeriesComponent } from './components/movie-items/components/tv-series/tv-series.component';
+import { TvSeriesCardComponent } from './components/movie-items/components/tv-series-card/tv-series-card.component';
 
 
 @NgModule({
@@ -18,7 +21,10 @@ import { CartComponent } from './components/movie-items/components/cart/cart.com
     TopRatedCarouselComponent,
     GenreComponent,
     MovieItemsComponent,
-    CartComponent
+    CartComponent,
+    MovieComponent,
+    TvSeriesComponent,
+    TvSeriesCardComponent
   ],
   imports: [
     CommonModule,
@@ -30,6 +36,8 @@ import { CartComponent } from './components/movie-items/components/cart/cart.com
         SideBarComponent,
         TopRatedCarouselComponent,
         CartComponent,
+        MovieComponent,
+        TvSeriesComponent,
     ]
 })
 export class HomeModule { }

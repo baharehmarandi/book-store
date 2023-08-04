@@ -1,4 +1,4 @@
-.movie-card-image-color{
+.tv-series-card-image-color{
   position: absolute;
   top: 0;
   left: 0;
@@ -8,7 +8,7 @@
   z-index: 1;
 }
 
-.movie-card-details-color{
+.tv-series-card-details-color{
   position: absolute;
   top: 0;
   left: 0;
@@ -18,30 +18,30 @@
   z-index: 1;
 }
 
-.title, .genres, .rate, .movie-description{
+.tv-series-title, .tv-series-genres, .tv-series-rate, .tv-series-description{
   z-index: 10;
 }
 
-.title{
+.tv-series-title{
   top: 50%;
   left: 50%;
   z-index: 100;
   transform: translate(-50%, -50%);
 }
 
-.description-title{
+.tv-series-description-title{
   top: 10%;
   left: 0;
   z-index: 100;
 }
 
-.rate, .rate-description{
+.tv-series-rate, .tv-series-rate-description{
   bottom: 10%;
   left: 10%;
   z-index: 100;
 }
 
-.movie-description{
+.tv-series-description{
   text-align: justify;
   top: 50%;
   left: 50%;
@@ -55,7 +55,7 @@
   height: calc(5 * 1.75em);
 }
 
-.rate-genres-description{
+.tv-series-rate-genres-description{
   bottom: 10%;
   left: 0;
   z-index: 100;

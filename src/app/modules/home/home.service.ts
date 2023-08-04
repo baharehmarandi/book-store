@@ -4,6 +4,7 @@ import {IGenresResponse} from "../../componnets/models/genres.model";
 import {apiBaseUrl, token} from "../../../environments/environment";
 import {Observable} from "rxjs";
 import {IMovie} from "../../componnets/models/movie.model";
+import {ITvSeries} from "../../componnets/models/tv-series.model";
 
 
 @Injectable({
@@ -23,6 +24,14 @@ export class HomeService {
 
   getMoviesList(movieType: string): Observable<IMovie>{
     return this.http.get<IMovie>(`${apiBaseUrl}/movie/${movieType}`,{
+      headers:{
+        'Authorization': 'Bearer ' + token
+      }
+    })
+  }
+
+  getTvSeriesList(tvSeriesType: string): Observable<ITvSeries>{
+    return this.http.get<ITvSeries>(`${apiBaseUrl}/tv/${tvSeriesType}`, {
       headers:{
         'Authorization': 'Bearer ' + token
       }

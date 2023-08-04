@@ -6,6 +6,11 @@ import {
   PopularMovieActions,
   UpComingMovieActions
 } from "../../componnets/store/movie/actions/movie.actions";
+import {
+  AiringTodayTvSeriesAction,
+  OnTheAirTvSeriesAction,
+  PopularTvSeriesActions
+} from "../../componnets/store/tv-series/actions/tv-series.actions";
 
 @Component({
   selector: 'app-home-page',
@@ -19,5 +24,8 @@ export class HomePageComponent {
    this.store.dispatch(PopularMovieActions.loadPopularMovies());
    this.store.dispatch(NowPlayingMovieActions.loadNowPlayingMovies());
    this.store.dispatch(UpComingMovieActions.loadUpComingMovies());
+   this.store.dispatch(PopularTvSeriesActions.loadPopularTvSeries());
+   this.store.dispatch(OnTheAirTvSeriesAction.loadOnTheAirTvSeries());
+   this.store.dispatch(AiringTodayTvSeriesAction.loadAiringTodayTvSeries());
  }
 }
