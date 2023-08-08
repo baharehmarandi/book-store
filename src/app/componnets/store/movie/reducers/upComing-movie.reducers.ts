@@ -7,14 +7,16 @@ export interface UpComingMovieState {
   upComingMoviesList?: IResults[],
   loading?: boolean,
   success?: boolean,
-  error?: HttpErrorResponse
+  error?: HttpErrorResponse,
+  total?: number
 }
 
 export const initialState: UpComingMovieState = {
   upComingMoviesList: undefined,
   loading: undefined,
   success: undefined,
-  error: undefined
+  error: undefined,
+  total: undefined
 }
 
 export const upComingMovieReducer = createReducer(
@@ -22,16 +24,20 @@ export const upComingMovieReducer = createReducer(
   on(UpComingMovieActions.loadUpComingMovies, (state) => ({
     ...state,
     loading: true,
+    success: undefined,
+    error: undefined
   })),
   on(UpComingMovieActions.loadUpComingMoviesSuccess, (state, action) =>({
     ...state,
     upComingMoviesList: action.payload,
     loading: false,
-    success: true
+    success: true,
+    total: action.total
   })),
   on(UpComingMovieActions.loadUpComingMoviesFailure,(state, action) => ({
     ...state,
     loading: false,
+    success: false,
     error: action.error
   }))
 )

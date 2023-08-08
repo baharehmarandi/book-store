@@ -1,6 +1,8 @@
 export interface ITvSeries {
   page?: number,
-  results: ITvSeriesResult[]
+  results: ITvSeriesResult[],
+  total_pages: number,
+  total_results: number
 }
 
 export interface ITvSeriesResult {

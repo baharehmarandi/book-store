@@ -8,4 +8,6 @@ export const selectAiringTodayYvSeriesLoading = createSelector(selectAiringToday
 
 export const selectAiringTodayTvSeriesSuccess = createSelector(selectAiringTodayTvSeriesState, (state: AiringTodayTvSeriesState) => state.success);
 
+export const selectAiringTodayTvSeriesTotal = createSelector(selectAiringTodayTvSeriesState, (state: AiringTodayTvSeriesState) => state.total);
+
 export const selectAiringTodayTvSeriesError = createSelector(selectAiringTodayTvSeriesState, (state: AiringTodayTvSeriesState) => state.error)

@@ -2,7 +2,7 @@
   <div class="d-flex flex-row justify-content-between">
     <h3 class="text-white">{{movieList.name}}</h3>
     <a class="see-more-link d-flex align-items-center"
-        routerLink="https://google.com">
+        [routerLink]="[movieList.link]">
       <span>See more</span>
       <i class="pi pi-angle-right"></i>
     </a>

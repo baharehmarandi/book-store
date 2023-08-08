@@ -1,0 +1,11 @@
+<app-header></app-header>
+
+<div class="container">
+  <h3 class="text-white">On the air tv series</h3>
+  <div class="d-flex flex-row flex-wrap">
+    <div *ngFor="let onTheAirTvSeries of (onTheAirTvSeriesLists$|async)" class="col-12 md:col-3">
+      <app-tv-series-card [tvSeries]="onTheAirTvSeries"></app-tv-series-card>
+    </div>
+  </div>
+  <p-paginator #paginator (onPageChange)="onPageChange($event)" [first]="first" [rows]="rows" [totalRecords]="(total$ | async) ?? 0" ></p-paginator>
+</div>

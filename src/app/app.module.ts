@@ -20,12 +20,31 @@ import {MovieEffects} from "./componnets/store/movie/effects/movie.effects";
 import {movieReducer} from "./componnets/store/movie/reducers/movie.reducers";
 import {tvSeriesReducer} from "./componnets/store/tv-series/reducers/tvSeries.reducers";
 import {TvSeriesEffects} from "./componnets/store/tv-series/effects/tvSeries.effects";
+import { FooterComponent } from './shared/footer/footer.component';
+import { PopularMoviesComponent } from './pages/popular-movies/popular-movies.component';
+import { UpComingMoviesComponent } from './pages/up-coming-movies/up-coming-movies.component';
+import { NowPlayingMoviesComponent } from './pages/now-playing-movies/now-playing-movies.component';
+import {TopRatedMoviesComponent} from "./pages/top-rated-movies/top-rated-movies.component";
+import {SliderModule} from "primeng/slider";
+import { OnTheAirTvSeriesComponent } from './pages/on-the-air-tv-series/on-the-air-tv-series.component';
+import { PopularTvSeriesComponent } from './pages/popular-tv-series/popular-tv-series.component';
+import { AiringTodayTvSeriesComponent } from './pages/airing-today-tv-series/airing-today-tv-series.component';
+import { TopRatedTvSeriesComponent } from './pages/top-rated-tv-series/top-rated-tv-series.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomePageComponent
+    HomePageComponent,
+    FooterComponent,
+    PopularMoviesComponent,
+    UpComingMoviesComponent,
+    NowPlayingMoviesComponent,
+    TopRatedMoviesComponent,
+    OnTheAirTvSeriesComponent,
+    PopularTvSeriesComponent,
+    AiringTodayTvSeriesComponent,
+    TopRatedTvSeriesComponent
   ],
   imports: [
     BrowserModule,
@@ -36,10 +55,11 @@ import {TvSeriesEffects} from "./componnets/store/tv-series/effects/tvSeries.eff
     TagModule,
     NgOptimizedImage,
     HomeModule,
-    StoreModule.forRoot({genres: genresReducer, movie: movieReducer, tvSeries: tvSeriesReducer} ),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    StoreModule.forRoot({genres: genresReducer, movie: movieReducer, tvSeries: tvSeriesReducer}),
+    StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode()}),
     EffectsModule.forRoot([GenresEffects, MovieEffects, TvSeriesEffects]),
-    HttpClientModule
+    HttpClientModule,
+    SliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

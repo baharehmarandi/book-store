@@ -1,12 +1,14 @@
-<div class="container d-flex flex-column">
-  <div class="d-flex flex-row">
-    <app-side-bar class="d-flex col-1"></app-side-bar>
+<div class="d-flex flex-column">
+  <div class="container d-flex flex-row">
     <app-header class="d-flex col-11"></app-header>
   </div>
   <div>
-    <app-top-rated-carousel></app-top-rated-carousel>
-    <app-genres></app-genres>
-    <app-movie></app-movie>
-    <app-tv-series></app-tv-series>
+    <div class="container">
+      <app-top-rated-carousel></app-top-rated-carousel>
+      <app-genres></app-genres>
+      <app-movie></app-movie>
+      <app-tv-series></app-tv-series>
+    </div>
+    <app-footer></app-footer>
   </div>
 </div>

@@ -7,14 +7,16 @@ export interface PopularTvSeriesState {
   popularTvSeries?: ITvSeriesResult[],
   loading?: boolean,
   success?: boolean,
-  error?: HttpErrorResponse
+  error?: HttpErrorResponse,
+  total?: number
 }
 
 export const initialState: PopularTvSeriesState = {
   popularTvSeries: undefined,
   loading: undefined,
   success: undefined,
-  error: undefined
+  error: undefined,
+  total: undefined
 }
 
 export const popularTvSeriesReducer = createReducer(
@@ -22,16 +24,20 @@ export const popularTvSeriesReducer = createReducer(
   on(PopularTvSeriesActions.loadPopularTvSeries, (state) => ({
     ...state,
     loading: true,
+    success: undefined,
+    error: undefined
   })),
   on(PopularTvSeriesActions.loadPopularTvSeriesSuccess,(state, action) => ({
     ...state,
     loading: false,
     success: true,
     popularTvSeries: action.payload,
+    total: action.total
   })),
   on(PopularTvSeriesActions.loadPopularTvSeriesFailure, (state, action) => ({
     ...state,
     loading: false,
+    success: false,
     error: action.error,
   }))
 )

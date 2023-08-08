@@ -22,16 +22,16 @@ export class HomeService {
     })
   }
 
-  getMoviesList(movieType: string): Observable<IMovie>{
-    return this.http.get<IMovie>(`${apiBaseUrl}/movie/${movieType}`,{
+  getMoviesList(movieType: string, page = 1): Observable<IMovie>{
+    return this.http.get<IMovie>(`${apiBaseUrl}/movie/${movieType}?page=${page}`,{
       headers:{
         'Authorization': 'Bearer ' + token
       }
     })
   }
 
-  getTvSeriesList(tvSeriesType: string): Observable<ITvSeries>{
-    return this.http.get<ITvSeries>(`${apiBaseUrl}/tv/${tvSeriesType}`, {
+  getTvSeriesList(tvSeriesType: string, page = 1): Observable<ITvSeries>{
+    return this.http.get<ITvSeries>(`${apiBaseUrl}/tv/${tvSeriesType}?page=${page}`, {
       headers:{
         'Authorization': 'Bearer ' + token
       }

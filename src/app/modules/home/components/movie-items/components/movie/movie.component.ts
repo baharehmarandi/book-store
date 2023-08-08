@@ -5,13 +5,10 @@ import {IResults} from "../../../../../../componnets/models/movie.model";
 import {selectPopularMovie} from "../../../../../../componnets/store/movie/selectors/popular-movies.selectors";
 import {selectNowPlayingMovie} from "../../../../../../componnets/store/movie/selectors/nowPlaying-movie.selectors";
 import {selectUpComingMovie} from "../../../../../../componnets/store/movie/selectors/upComing-movie.selectors";
-import {
-  NowPlayingMovieActions,
-  PopularMovieActions, UpComingMovieActions
-} from "../../../../../../componnets/store/movie/actions/movie.actions";
 
 export interface IMovieLists {
   name: string;
+  link: string;
 }
 
 @Component({
@@ -47,14 +44,10 @@ export class MovieComponent implements OnInit {
     })
 
     this.movieLists = [
-      {name: 'Popular movies'},
-      {name: 'Now playing movies'},
-      {name: 'Upcoming movies'}
+      {name: 'Popular movies', link:'/movies/popular'},
+      {name: 'Now playing movies', link:'/movies/nowPlaying'},
+      {name: 'Upcoming movies', link:'/movies/upComing'}
     ];
-
-    this.store.dispatch(PopularMovieActions.loadPopularMovies());
-    this.store.dispatch(NowPlayingMovieActions.loadNowPlayingMovies());
-    this.store.dispatch(UpComingMovieActions.loadUpComingMovies());
 
     this.responsiveOptions = [
       {

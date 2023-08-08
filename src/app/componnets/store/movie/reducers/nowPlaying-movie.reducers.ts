@@ -7,31 +7,37 @@ export interface NowPlayingMovieState {
   nowPlayingMovie?: IResults[],
   loading?: boolean,
   success?: boolean,
-  error?: HttpErrorResponse
+  error?: HttpErrorResponse,
+  total?: number,
 }
 
 export const initialState: NowPlayingMovieState = {
   nowPlayingMovie: undefined,
   loading: undefined,
   success: undefined,
-  error: undefined
+  error: undefined,
+  total: undefined,
 }
 
 export const nowPlayingMovieReducer = createReducer(
   initialState,
   on(NowPlayingMovieActions.loadNowPlayingMovies, (state) => ({
     ...state,
-    loading: true
+    loading: true,
+    success: undefined,
+    error: undefined
   })),
   on(NowPlayingMovieActions.loadNowPlayingMoviesSuccess, (state, action) => ({
     ...state,
     loading: false,
     nowPlayingMovie: action.payload,
-    success: true
+    success: true,
+    total: action.total
   })),
   on(NowPlayingMovieActions.loadNowPlayingMoviesFailure, (state, action) => ({
     ...state,
     loading: false,
+    success: false,
     error: action.error
   }))
 )

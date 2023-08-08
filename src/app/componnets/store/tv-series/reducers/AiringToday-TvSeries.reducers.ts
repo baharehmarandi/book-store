@@ -7,14 +7,16 @@ export interface AiringTodayTvSeriesState {
   airingTodayTvSeries?: ITvSeriesResult[],
   loading?: boolean,
   success?: boolean,
-  error?: HttpErrorResponse
+  error?: HttpErrorResponse,
+  total?: number,
 }
 
 export const initialState: AiringTodayTvSeriesState = {
   airingTodayTvSeries: undefined,
   loading: undefined,
   success: undefined,
-  error: undefined
+  error: undefined,
+  total: undefined,
 }
 
 export const airingTodayTvSeriesReducer = createReducer(
@@ -27,7 +29,8 @@ export const airingTodayTvSeriesReducer = createReducer(
     ...state,
     loading: false,
     success: true,
-    airingTodayTvSeries: action.payload
+    airingTodayTvSeries: action.payload,
+    total: action.total
   })),
   on(AiringTodayTvSeriesAction.loadAiringTodayTvSeriesFailure,(state, action) =>({
     ...state,

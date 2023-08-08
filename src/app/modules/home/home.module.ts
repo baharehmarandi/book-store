@@ -38,6 +38,7 @@ import { TvSeriesCardComponent } from './components/movie-items/components/tv-se
         CartComponent,
         MovieComponent,
         TvSeriesComponent,
+        TvSeriesCardComponent,
     ]
 })
 export class HomeModule { }

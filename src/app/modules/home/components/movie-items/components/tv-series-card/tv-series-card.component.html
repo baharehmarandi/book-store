@@ -4,7 +4,8 @@
          (mouseenter)="onHideTitle()"
          (mouseleave)="onShowTitle()">
       <div>
-        <p-image class="tv-series-card-image" [src]="imageBaseUrl+tvSeries?.poster_path" alt="Image" width="282" height="423"></p-image>
+        <p-image class="tv-series-card-image" *ngIf="tvSeries?.poster_path" [src]="imageBaseUrl+tvSeries?.poster_path" alt="Image" width="282" height="423"></p-image>
+        <p-image class="tv-series-card-image" *ngIf="!tvSeries?.poster_path" [src]="noImage" alt="Image" width="282" height="423"></p-image>
         <div *ngIf="!showMovieDescription" class="tv-series-card-image-color"></div>
         <div *ngIf="showMovieDescription" class="tv-series-card-details-color"></div>
       </div>

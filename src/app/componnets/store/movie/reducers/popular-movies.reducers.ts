@@ -7,14 +7,16 @@ export interface PopularMoviesState {
   moviePopularList?: IResults[],
   loading?: boolean,
   success?: boolean,
-  error?: HttpErrorResponse
+  error?: HttpErrorResponse,
+  total?: number
 }
 
 const initialState: PopularMoviesState = {
   moviePopularList: undefined,
   loading: undefined,
   success: undefined,
-  error: undefined
+  error: undefined,
+  total: undefined
 }
 
 export const popularMoviesReducer = createReducer(
@@ -22,16 +24,20 @@ export const popularMoviesReducer = createReducer(
   on(PopularMovieActions.loadPopularMovies, (state) => ({
     ...state,
     loading: true,
+    success: undefined,
+    error: undefined
   })),
   on(PopularMovieActions.loadPopularMoviesSuccess, (state, action) => ({
     ...state,
     moviePopularList: action.payload,
     loading: false,
     success: true,
+    total: action.total
   })),
   on(PopularMovieActions.loadPopularMoviesFailure, (state, action) => ({
    ...state,
     loading: false,
+    success: false,
     error: action.error
   }))
 )

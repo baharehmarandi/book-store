@@ -1,0 +1,12 @@
+<app-header></app-header>
+
+<div class="container">
+  <h3 class="text-white">Up coming movies</h3>
+  <div class="d-flex flex-row flex-wrap">
+    <div *ngFor="let upComingMovie of (upComingMoviesLists$|async)" class="col-12 md:col-3">
+      <app-cart [movie]="upComingMovie"></app-cart>
+    </div>
+  </div>
+  <p-paginator #paginator (onPageChange)="onPageChange($event)" [first]="first" [rows]="rows" [totalRecords]="(total$ | async) ?? 0" ></p-paginator>
+</div>
+

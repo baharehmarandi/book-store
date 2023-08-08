@@ -15,9 +15,10 @@ export class TvSeriesEffects {
   loadPopularTvSeries$ = createEffect(() => {
     return this.action$.pipe(
       ofType(PopularTvSeriesActions.loadPopularTvSeries),
-      switchMap(() => this.homeService.getTvSeriesList('popular').pipe(
+      switchMap((action) => this.homeService.getTvSeriesList('popular', action.page).pipe(
         map((response: ITvSeries) =>
-          PopularTvSeriesActions.loadPopularTvSeriesSuccess({payload: response.results}))
+          PopularTvSeriesActions.loadPopularTvSeriesSuccess({payload: response.results, total: response.total_results})),
+        catchError((error: HttpErrorResponse) => of(PopularTvSeriesActions.loadPopularTvSeriesFailure(error)))
       )),
       catchError((error: HttpErrorResponse) => of(PopularTvSeriesActions.loadPopularTvSeriesFailure(error)))
     )
@@ -26,9 +27,10 @@ export class TvSeriesEffects {
   loadOnTheAirTvSeries$ = createEffect(() => {
     return this.action$.pipe(
       ofType(OnTheAirTvSeriesAction.loadOnTheAirTvSeries),
-      switchMap(() => this.homeService.getTvSeriesList('on_the_air').pipe(
+      switchMap((action) => this.homeService.getTvSeriesList('on_the_air', action.page).pipe(
         map((response: ITvSeries) =>
-          OnTheAirTvSeriesAction.loadOnTheAirTvSeriesSuccess({payload: response.results}))
+          OnTheAirTvSeriesAction.loadOnTheAirTvSeriesSuccess({payload: response.results, total: response.total_results})),
+        catchError((error: HttpErrorResponse) => of(OnTheAirTvSeriesAction.loadOnTheAirTvSeriesFailure(error)))
       )),
       catchError((error: HttpErrorResponse) => of(OnTheAirTvSeriesAction.loadOnTheAirTvSeriesFailure(error)))
     )
@@ -37,9 +39,10 @@ export class TvSeriesEffects {
   loadAiringTvSeries$ = createEffect(() => {
     return this.action$.pipe(
       ofType(AiringTodayTvSeriesAction.loadAiringTodayTvSeries),
-      switchMap(() => this.homeService.getTvSeriesList('airing_today').pipe(
+      switchMap((action) => this.homeService.getTvSeriesList('airing_today', action.page).pipe(
         map((response: ITvSeries) =>
-          AiringTodayTvSeriesAction.loadAiringTodayTvSeriesSuccess({payload:response.results}))
+          AiringTodayTvSeriesAction.loadAiringTodayTvSeriesSuccess({payload:response.results, total: response.total_results})),
+        catchError((error: HttpErrorResponse) => of(AiringTodayTvSeriesAction.loadAiringTodayTvSeriesFailure(error)))
       )),
       catchError((error: HttpErrorResponse) => of(AiringTodayTvSeriesAction.loadAiringTodayTvSeriesFailure(error)))
     )

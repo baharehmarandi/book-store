@@ -21,11 +21,11 @@ export class HomePageComponent {
  constructor(private store: Store) {
    this.store.dispatch(TvGenresActions.loadTvGenres());
    this.store.dispatch(MovieGenresActions.loadMovieGenres());
-   this.store.dispatch(PopularMovieActions.loadPopularMovies());
-   this.store.dispatch(NowPlayingMovieActions.loadNowPlayingMovies());
-   this.store.dispatch(UpComingMovieActions.loadUpComingMovies());
-   this.store.dispatch(PopularTvSeriesActions.loadPopularTvSeries());
-   this.store.dispatch(OnTheAirTvSeriesAction.loadOnTheAirTvSeries());
-   this.store.dispatch(AiringTodayTvSeriesAction.loadAiringTodayTvSeries());
+   this.store.dispatch(PopularMovieActions.loadPopularMovies({page: 1}));
+   this.store.dispatch(NowPlayingMovieActions.loadNowPlayingMovies({page: 1}));
+   this.store.dispatch(UpComingMovieActions.loadUpComingMovies({page: 1}));
+   this.store.dispatch(PopularTvSeriesActions.loadPopularTvSeries({page: 1}));
+   this.store.dispatch(OnTheAirTvSeriesAction.loadOnTheAirTvSeries({page: 1}));
+   this.store.dispatch(AiringTodayTvSeriesAction.loadAiringTodayTvSeries({page: 1}));
  }
 }

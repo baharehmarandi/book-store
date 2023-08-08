@@ -9,4 +9,6 @@ export const selectPopularTvSeriesLoading = createSelector(selectPopularMovieSta
 
 export const selectPopularTvSeriesSuccess = createSelector(selectPopularTvSeriesState,(state: PopularTvSeriesState) => state.success);
 
+export const selectPopularTvSeriesTotal = createSelector(selectPopularTvSeriesState,(state: PopularTvSeriesState) => state.total);
+
 export const selectPopularTvSeriesError = createSelector(selectPopularTvSeriesState, (state: PopularTvSeriesState) => state.error);

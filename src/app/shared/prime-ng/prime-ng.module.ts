@@ -8,6 +8,7 @@ import { TabMenuModule } from 'primeng/tabmenu';
 import { TabViewModule } from 'primeng/tabview';
 import { CardModule } from 'primeng/card';
 import { ImageModule } from 'primeng/image';
+import { PaginatorModule } from 'primeng/paginator';
 
 
 const importedModules = [
@@ -18,7 +19,8 @@ const importedModules = [
   TabMenuModule,
   TabViewModule,
   CardModule,
-  ImageModule
+  ImageModule,
+  PaginatorModule
 ]
 
 

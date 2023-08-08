@@ -9,13 +9,10 @@ import {
 import {
   selectAiringTodayTvSeries
 } from "../../../../../../componnets/store/tv-series/selectors/AiringToday-tvSeries.selectors";
-import {
-  AiringTodayTvSeriesAction, OnTheAirTvSeriesAction,
-  PopularTvSeriesActions
-} from "../../../../../../componnets/store/tv-series/actions/tv-series.actions";
 
 export interface ITvSeriesLists {
   name: string;
+  links: string;
 }
 
 @Component({
@@ -50,14 +47,10 @@ export class TvSeriesComponent implements OnInit {
     })
 
     this.tvSeriesLists = [
-      {name: 'Popular tv series'},
-      {name: 'On the air tv series'},
-      {name: 'Airing today tv series'}
+      {name: 'Popular tv series', links: 'tvSeries/popular'},
+      {name: 'On the air tv series', links: 'tvSeries/onTheAir'},
+      {name: 'Airing today tv series', links: 'tvSeries/airingToday'}
     ];
-
-    this.store.dispatch(PopularTvSeriesActions.loadPopularTvSeries());
-    this.store.dispatch(AiringTodayTvSeriesAction.loadAiringTodayTvSeries());
-    this.store.dispatch(OnTheAirTvSeriesAction.loadOnTheAirTvSeries());
 
     this.responsiveOptions = [
       {
