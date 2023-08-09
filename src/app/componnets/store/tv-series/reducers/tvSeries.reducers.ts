@@ -2,11 +2,13 @@ import {popularTvSeriesReducer, PopularTvSeriesState} from "./popular-tvSeries.r
 import {onTheAirTvSeriesReducer, OnTheAirTvSeriesState} from "./onTheAir-TvSeries.reducers";
 import {airingTodayTvSeriesReducer, AiringTodayTvSeriesState} from "./AiringToday-TvSeries.reducers";
 import {combineReducers} from "@ngrx/store";
+import {topRatedTvSeriesReducer, TopRatedTvSeriesState} from "./topRated-tvSeries.reducers";
 
 export interface TvSeriesState {
   popularTvSeries: PopularTvSeriesState,
   onTheAirTvSeries: OnTheAirTvSeriesState,
-  AiringTodayTvSeries: AiringTodayTvSeriesState
+  AiringTodayTvSeries: AiringTodayTvSeriesState,
+  topRatedTvSeries: TopRatedTvSeriesState
 }
 
 export const tvSeriesKeyFeature = 'tvSeries';
@@ -14,5 +16,6 @@ export const tvSeriesKeyFeature = 'tvSeries';
 export const tvSeriesReducer = combineReducers({
   popularTvSeries: popularTvSeriesReducer,
   onTheAirTvSeries: onTheAirTvSeriesReducer,
-  AiringTodayTvSeries: airingTodayTvSeriesReducer
+  AiringTodayTvSeries: airingTodayTvSeriesReducer,
+  topRatedTvSeries: topRatedTvSeriesReducer
 })

@@ -8,3 +8,5 @@ export const selectPopularTvSeriesState = createSelector(selectTvSeries,(state: 
 export const selectOnTheAirTvSeriesState = createSelector(selectTvSeries, (state: TvSeriesState) => state.onTheAirTvSeries);
 
 export const selectAiringTodayTvSeriesState = createSelector(selectTvSeries, (state: TvSeriesState) => state.AiringTodayTvSeries);
+
+export const selectTopRatedTvSeriesState = createSelector(selectTvSeries, (state: TvSeriesState) => state.topRatedTvSeries);
