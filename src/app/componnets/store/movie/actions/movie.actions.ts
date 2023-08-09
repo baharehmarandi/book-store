@@ -28,3 +28,12 @@ export const NowPlayingMovieActions = createActionGroup({
     'Load NowPlayingMovies Failure': props<{error: HttpErrorResponse}>(),
   }
 });
+
+export const TopRatedMovieActions = createActionGroup({
+  source: 'topRatedMovie',
+  events: {
+    'Load TopRatedMovies': props<{page: number}>(),
+    'Load TopRatedMovies Success': props<{payload: IResults[], total: number}>(),
+    'Load TopRatedMovies Failure': props<{error: HttpErrorResponse}>()
+  }
+})

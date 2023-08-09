@@ -28,3 +28,12 @@ export const AiringTodayTvSeriesAction = createActionGroup({
     'Load AiringTodayTvSeriesFailure': props<{error: HttpErrorResponse}>(),
   }
 });
+
+export const TopRatedTvSeriesAction = createActionGroup({
+  source: 'TopRatedTvSeries',
+  events: {
+    'Load TopRatedTvSeries': props<{page: number}>(),
+    'Load TopRatedTvSeries Success': props<{payload:ITvSeriesResult[], total: number}>(),
+    'Load TopRatedTvSeries Failure': props<{error: HttpErrorResponse}>()
+  }
+})

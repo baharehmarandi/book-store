@@ -1,5 +1,7 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {Subject} from "rxjs";
+import {navigation} from "@ngrx/router-store/data-persistence";
+import {Router} from "@angular/router";
 
 export interface ITopRatedImage {
   imageUrl: string;
@@ -27,6 +29,9 @@ export class TopRatedCarouselComponent implements OnInit {
     this.windowResize.next();
   }
 
+  constructor(private router: Router) {
+  }
+
   ngOnInit(): void {
 
     this.windowResize.subscribe(() => {
@@ -39,7 +44,7 @@ export class TopRatedCarouselComponent implements OnInit {
 
     this.images = [
       { imageUrl: 'assets/images/top-rated-tv-series.png', title: "Top Rated TV Series", alt: "Top Rated TV Series", link: "https://www.bing.com" },
-      { imageUrl: 'assets/images/top-rated-movie.png', title:"Top Rated Movies", alt: "Top Rated Movies", link: "https://www.google.com" },
+      { imageUrl: 'assets/images/top-rated-movie.png', title:"Top Rated Movies", alt: "Top Rated Movies", link: "movies/top-rated" },
     ]
 
     this.responsiveOptions = [
@@ -62,6 +67,6 @@ export class TopRatedCarouselComponent implements OnInit {
   }
 
   onClick(item: string){
-    window.open(item, '_blank');
+    this.router.navigate([item])
   }
 }
