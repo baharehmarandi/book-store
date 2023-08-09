@@ -5,6 +5,7 @@ import {apiBaseUrl, token} from "../../../environments/environment";
 import {Observable} from "rxjs";
 import {IMovie} from "../../componnets/models/movie.model";
 import {ITvSeries} from "../../componnets/models/tv-series.model";
+import {IMovieDetails} from "../../componnets/models/movie-details.model";
 
 
 @Injectable({
@@ -33,6 +34,14 @@ export class HomeService {
   getTvSeriesList(tvSeriesType: string, page = 1): Observable<ITvSeries>{
     return this.http.get<ITvSeries>(`${apiBaseUrl}/tv/${tvSeriesType}?page=${page}`, {
       headers:{
+        'Authorization': 'Bearer ' + token
+      }
+    })
+  }
+
+  getMovieDetails(movieId: number): Observable<IMovieDetails> {
+    return this.http.get<IMovieDetails>(`${apiBaseUrl}/movie/${movieId}`, {
+      headers: {
         'Authorization': 'Bearer ' + token
       }
     })

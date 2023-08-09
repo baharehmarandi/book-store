@@ -1,4 +1,4 @@
-<div class="mt-4">
+<div [routerLink]="['/','movie', movie?.id]" class="mt-4">
   <div class=" movie-card border-1 surface-border border-round m-2 text-center">
     <div class="d-flex flex-column position-relative"
          (mouseenter)="onHideTitle()"

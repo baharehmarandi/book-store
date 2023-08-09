@@ -3,7 +3,7 @@
 <div class="container">
   <h3 class="text-white">Now playing movies</h3>
   <div class="d-flex flex-row flex-wrap">
-    <div *ngFor="let popularMovie of (NowPlayingMoviesLists$|async)" class="col-12 md:col-3">
+    <div *ngFor="let popularMovie of (NowPlayingMoviesLists$|async)" class="col-12  lg:col-4">
       <app-cart [movie]="popularMovie"></app-cart>
     </div>
   </div>
