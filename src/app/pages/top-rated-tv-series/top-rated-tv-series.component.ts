@@ -3,11 +3,8 @@ import {Paginator} from "primeng/paginator";
 import {Observable} from "rxjs";
 import {ITvSeriesResult} from "../../componnets/models/tv-series.model";
 import {Store} from "@ngrx/store";
-import {PopularTvSeriesActions} from "../../componnets/store/tv-series/actions/tv-series.actions";
-import {
-  selectPopularTvSeries,
-  selectPopularTvSeriesTotal
-} from "../../componnets/store/tv-series/selectors/popular-tvSeries.selectors";
+import {TopRatedTvSeriesAction} from "../../componnets/store/tv-series/actions/tv-series.actions";
+import { selectTopRatedTvSeries, selectTopRatedTvSeriesTotal } from 'src/app/componnets/store/tv-series/selectors/TopRated-tvSeries.seelctors';
 
 interface PageEvent {
   first?: number;
@@ -33,9 +30,9 @@ export class TopRatedTvSeriesComponent {
   total$: Observable<number | undefined>;
 
   constructor(private store: Store) {
-    this.store.dispatch(PopularTvSeriesActions.loadPopularTvSeries({page: this.page}));
-    this.popularTvSeriesLists$ = this.store.select(selectPopularTvSeries);
-    this.total$ = this.store.select(selectPopularTvSeriesTotal);
+    this.store.dispatch(TopRatedTvSeriesAction.loadTopRatedTvSeries({page: this.page}));
+    this.topRatedTvSeriesLists$ = this.store.select(selectTopRatedTvSeries);
+    this.total$ = this.store.select(selectTopRatedTvSeriesTotal);
   }
 
   ngOnInit(): void {
@@ -46,7 +43,7 @@ export class TopRatedTvSeriesComponent {
 
   onPageChange(event: PageEvent) {
     this.page = event.page ?  (event.page + 1) : 1;
-    this.store.dispatch(PopularTvSeriesActions.loadPopularTvSeries({page: this.page}));
+    this.store.dispatch(TopRatedTvSeriesAction.loadTopRatedTvSeries({page: this.page}));
   }
 
 }
