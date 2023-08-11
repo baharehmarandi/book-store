@@ -1,6 +1,7 @@
 import {createActionGroup, props} from "@ngrx/store";
 import {IResults} from "../../../models/movie.model";
 import {HttpErrorResponse} from "@angular/common/http";
+import {IMovieDetails} from "../../../models/movie-details.model";
 
 export const PopularMovieActions = createActionGroup({
   source: 'MoviePopular',
@@ -36,4 +37,13 @@ export const TopRatedMovieActions = createActionGroup({
       'Load TopRatedMovies Success': props<{payload: IResults[], total: number}>(),
       'Load TopRatedMovies Failure': props<{error: HttpErrorResponse}>(),
     }
+});
+
+export const MovieDetailsActions = createActionGroup({
+  source: 'MovieDetails',
+  events: {
+    'Load MovieDetails': props<{id: number}>(),
+    'Load MovieDetails Success': props<{payload: IMovieDetails}>(),
+    'Load MovieDetails Failure': props<{payload: HttpErrorResponse}>(),
+  }
 })

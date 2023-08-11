@@ -5,6 +5,7 @@
          (mouseleave)="onShowTitle()">
       <div>
         <p-image class="movie-card-image" [src]="imageBaseUrl+movie?.poster_path" alt="Image" width="282" height="423"></p-image>
+        <p-image class="tv-series-card-image" *ngIf="movie?.poster_path" [src]="noImage" alt="Image" width="282" height="423"></p-image>
         <div *ngIf="!showMovieDescription" class="movie-card-image-color"></div>
         <div *ngIf="showMovieDescription" class="movie-card-details-color"></div>
       </div>

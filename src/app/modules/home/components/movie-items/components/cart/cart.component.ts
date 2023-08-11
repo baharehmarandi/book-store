@@ -16,6 +16,7 @@ export class CartComponent implements OnInit {
   protected readonly imageBaseUrl = imageBaseUrl;
   showMovieDescription: boolean = false;
   genreList: IGenres[] = [];
+  noImage: string = '/assets/images/no-image.jpeg'
 
   constructor(private store: Store) {
   }
