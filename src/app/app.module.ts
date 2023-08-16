@@ -31,6 +31,13 @@ import { PopularTvSeriesComponent } from './pages/popular-tv-series/popular-tv-s
 import { AiringTodayTvSeriesComponent } from './pages/airing-today-tv-series/airing-today-tv-series.component';
 import { TopRatedTvSeriesComponent } from './pages/top-rated-tv-series/top-rated-tv-series.component';
 import { MovieDetailsSinglePageComponent } from './pages/movie-details-single-page/movie-details-single-page.component';
+import {NumToTimesPipe} from "./shared/num-to-times.pipe";
+import { TvSeriesDetailsSinglePageComponent } from './pages/tv-series-details-single-page/tv-series-details-single-page.component';
+import {TvSeriesSeasonsComponent} from "./pages/tv-series-details-single-page/components/tv-series-seasons/tv-series-seasons.component";
+import { TvSeriesEpisodesComponent } from './pages/tv-series-details-single-page/components/tv-series-episodes/tv-series-episodes.component';
+import {PopupComponent} from "./shared/header/components/popup/popup.component";
+import {searchReducer} from "./componnets/store/search/reducers/search.reducer";
+import {SearchEffect} from "./componnets/store/search/effects/search.effect";
 
 @NgModule({
   declarations: [
@@ -46,7 +53,12 @@ import { MovieDetailsSinglePageComponent } from './pages/movie-details-single-pa
     PopularTvSeriesComponent,
     AiringTodayTvSeriesComponent,
     TopRatedTvSeriesComponent,
-    MovieDetailsSinglePageComponent
+    MovieDetailsSinglePageComponent,
+    NumToTimesPipe,
+    TvSeriesDetailsSinglePageComponent,
+    TvSeriesSeasonsComponent,
+    TvSeriesEpisodesComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,
@@ -57,9 +69,9 @@ import { MovieDetailsSinglePageComponent } from './pages/movie-details-single-pa
     TagModule,
     NgOptimizedImage,
     HomeModule,
-    StoreModule.forRoot({genres: genresReducer, movie: movieReducer, tvSeries: tvSeriesReducer}),
+    StoreModule.forRoot({genres: genresReducer, movie: movieReducer, tvSeries: tvSeriesReducer, search: searchReducer}),
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode()}),
-    EffectsModule.forRoot([GenresEffects, MovieEffects, TvSeriesEffects]),
+    EffectsModule.forRoot([GenresEffects, MovieEffects, TvSeriesEffects, SearchEffect]),
     HttpClientModule,
     SliderModule
   ],

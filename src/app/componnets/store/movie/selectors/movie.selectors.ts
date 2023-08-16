@@ -10,3 +10,5 @@ export const selectUpComingMovieState = createSelector(selectMovie, (state:Movie
 export const selectNowPlayingMovieState = createSelector(selectMovie, (state: MovieState) => state.nowPlayingMovie);
 
 export const selectTopRatedMovieState = createSelector(selectMovie, (state: MovieState) => state.topRatedMovie);
+
+export const selectDetailsMovieState = createSelector(selectMovie, (state: MovieState) => state.detailsMovie);

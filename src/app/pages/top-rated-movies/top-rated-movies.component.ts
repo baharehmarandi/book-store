@@ -3,11 +3,7 @@ import {Paginator} from "primeng/paginator";
 import {Observable} from "rxjs";
 import {IResults} from "../../componnets/models/movie.model";
 import {Store} from "@ngrx/store";
-import {PopularMovieActions, TopRatedMovieActions} from "../../componnets/store/movie/actions/movie.actions";
-import {
-  selectPopularMovie,
-  selectPopularMovieTotal
-} from "../../componnets/store/movie/selectors/popular-movies.selectors";
+import {TopRatedMovieActions} from "../../componnets/store/movie/actions/movie.actions";
 import {
   selectTopRatedMovie,
   selectTopRatedMovieTotal

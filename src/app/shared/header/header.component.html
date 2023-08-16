@@ -1,11 +1,13 @@
 <div class="container my-5">
   <div class="d-flex flex-row align-items-center">
     <img src="assets/images/logo.png" alt="logo" class="logo">
-    <div class="d-flex w-100 justify-content-center">
+    <div class="d-flex w-100 justify-content-center position-relative">
       <span class="p-input-icon-left w-50">
         <i class="pi pi-search"></i>
-        <input class="w-100" type="text" pInputText placeholder="search any movie" [(ngModel)]="value" />
+        <input class="w-100" type="text" pInputText placeholder="search any movie" [(ngModel)]="value" (input)="onInputChange($event)"/>
+        <app-popup *ngIf="showPopup" [searchValue]="(searchValue$ | async) ?? []"></app-popup>
       </span>
     </div>
   </div>
+
 </div>

@@ -10,3 +10,7 @@ export const selectOnTheAirTvSeriesState = createSelector(selectTvSeries, (state
 export const selectAiringTodayTvSeriesState = createSelector(selectTvSeries, (state: TvSeriesState) => state.AiringTodayTvSeries);
 
 export const selectTopRatedTvSeriesState = createSelector(selectTvSeries, (state: TvSeriesState) => state.topRatedTvSeries);
+
+export const selectTvSeriesDetailsState = createSelector(selectTvSeries, (state: TvSeriesState) => state.tvSeriesDetails);
+
+export const selectTvSeriesSeasonState = createSelector(selectTvSeries, (state: TvSeriesState) => state.tvSeriesSeasons);

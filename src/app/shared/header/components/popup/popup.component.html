@@ -1,0 +1,9 @@
+<div class="popup-box position-absolute">
+  <div *ngFor="let value of searchValue" class="mb-3"
+  [routerLink]="value.media_type === 'movie' ? ['/movie', value.id ] : ['/tvSeries', value.id]">
+    <p-image [src]="imageBaseUrl + value.poster_path" width="50" class="mr-3"></p-image>
+    <span *ngIf="value.media_type === 'movie'" class="text-white">{{value.title}}</span>
+    <span *ngIf="value.media_type === 'tv'" class="text-white">{{value.name}}</span>
+    <p-divider></p-divider>
+  </div>
+</div>

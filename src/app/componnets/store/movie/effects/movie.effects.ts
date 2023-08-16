@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {HomeService} from "../../../../modules/home/home.service";
 import {
+  MovieDetailsActions,
   NowPlayingMovieActions,
   PopularMovieActions,
   TopRatedMovieActions,
@@ -10,6 +11,7 @@ import {
 import {catchError, map, mergeMap, of, switchMap} from "rxjs";
 import {IMovie} from "../../../models/movie.model";
 import {HttpErrorResponse} from "@angular/common/http";
+import {IMovieDetails} from "../../../models/movie-details.model";
 
 @Injectable()
 export class MovieEffects {
@@ -62,6 +64,18 @@ export class MovieEffects {
         catchError((error: HttpErrorResponse) => of(TopRatedMovieActions.loadTopRatedMoviesFailure(error)))
       )),
       catchError((error: HttpErrorResponse) => of(TopRatedMovieActions.loadTopRatedMoviesFailure(error)))
+    )
+  })
+
+  loadDetailsMovie$ = createEffect(() => {
+    return this.action$.pipe(
+      ofType(MovieDetailsActions.loadMovieDetails),
+      switchMap((action) => this.homeService.getMovieDetails(action.id).pipe(
+        map((response: IMovieDetails) =>
+          MovieDetailsActions.loadMovieDetailsSuccess({payload: response})),
+        catchError((error: HttpErrorResponse) => of(MovieDetailsActions.loadMovieDetailsFailure(error)))
+      )),
+    catchError((error: HttpErrorResponse) => of(MovieDetailsActions.loadMovieDetailsFailure(error)))
     )
   })
 }

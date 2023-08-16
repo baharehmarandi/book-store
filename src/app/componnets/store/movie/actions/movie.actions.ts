@@ -44,6 +44,6 @@ export const MovieDetailsActions = createActionGroup({
   events: {
     'Load MovieDetails': props<{id: number}>(),
     'Load MovieDetails Success': props<{payload: IMovieDetails}>(),
-    'Load MovieDetails Failure': props<{payload: HttpErrorResponse}>(),
+    'Load MovieDetails Failure': props<{error: HttpErrorResponse}>(),
   }
 })

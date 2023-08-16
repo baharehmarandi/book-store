@@ -1,0 +1,22 @@
+<div  class="mt-5">
+  <h3 class="text-white">Seasons</h3>
+  <div class="flex flex-row flex-wrap">
+    <div class="flex justify-content-center col-12 md:col-4 lg:col-3 season"
+         [routerLink]="['/', 'tvSeries', seriesId, 'season-episodes', season.season_number]"
+         *ngFor="let season of seasons">
+      <div class="d-flex flex-row" >
+        <p-image [src]="imageBaseUrl + season.poster_path" alt="Image" width="80" class="me-4 tvSeriesImage"></p-image>
+        <div class="d-flex flex-column justify-content-around">
+          <h3 class="text-white">{{season.name}}</h3>
+          <span class="text-white">year: {{season.air_date | date: 'YYYY'}}</span>
+          <span class="text-white">episodes: {{season.episode_count}}</span>
+          <span class="text-white">{{season.overview}}</span>
+          <div class="d-flex flex-row align-items-center">
+            <i class="pi pi-star-fill me-1" style="color: yellow"></i>
+            <span class="text-white ms-1">{{season.vote_average}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

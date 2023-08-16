@@ -1,0 +1,39 @@
+<app-header></app-header>
+
+<ng-container *ngIf="tvSeriesDetails$ | async as tvSeriesDetails">
+  <div class="container d-flex flex-column md:flex-row">
+    <div class="flex flex-column">
+      <div class="flex flex-row">
+        <div class="flex flex-column col-5">
+          <p-image width="100%" [src]="imageBaseUrl + tvSeriesDetails.poster_path" alt="Image"></p-image>
+        </div>
+        <div class="flex flex-column ms-3 col-6 justify-content-center">
+          <h3 class="title text-6xl text-white">{{tvSeriesDetails.name}}</h3>
+          <div class="mt-2">
+            <span class="text-white text-3xl">Overview :</span>
+            <p class="text-white ms-3 mt-1">{{tvSeriesDetails.overview}}</p>
+          </div>
+          <div>
+            <span class="text-white text-3xl mb-1">Genres : </span>
+            <ul>
+              <li *ngFor="let genre of tvSeriesDetails.genres"
+                  class="text-white">{{genre.name}}</li>
+            </ul>
+          </div>
+          <div class="flex-row mt-1 ms-3">
+            <span class="text-white text-xl">Vote : </span>
+            <div class="card flex justify-content-center">
+              <p-rating  [(ngModel)]="value" [readonly]="true" [cancel]="false" [stars]="10"></p-rating>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <app-tv-series-seasons [seasons]="tvSeriesDetails.seasons" [seriesId]="id"></app-tv-series-seasons>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<app-footer></app-footer>
+

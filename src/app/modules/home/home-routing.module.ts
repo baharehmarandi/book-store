@@ -12,6 +12,12 @@ import {AiringTodayTvSeriesComponent} from "../../pages/airing-today-tv-series/a
 import {
   MovieDetailsSinglePageComponent
 } from "../../pages/movie-details-single-page/movie-details-single-page.component";
+import {
+  TvSeriesDetailsSinglePageComponent
+} from "../../pages/tv-series-details-single-page/tv-series-details-single-page.component";
+import {
+  TvSeriesEpisodesComponent
+} from "../../pages/tv-series-details-single-page/components/tv-series-episodes/tv-series-episodes.component";
 
 const routes: Routes = [
   {path: 'movies/top-rated', component: TopRatedMoviesComponent},
@@ -23,6 +29,8 @@ const routes: Routes = [
   {path: 'tvSeries/onTheAir', component: OnTheAirTvSeriesComponent},
   {path: 'tvSeries/airingToday', component: AiringTodayTvSeriesComponent},
   {path: 'movie/:id', component: MovieDetailsSinglePageComponent},
+  {path: 'tvSeries/:id', component: TvSeriesDetailsSinglePageComponent},
+  {path: 'tvSeries/:id/season-episodes/:seasonNumber', component: TvSeriesEpisodesComponent},
   {path: '', component: HomePageComponent},
 ];
 

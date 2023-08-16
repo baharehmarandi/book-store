@@ -6,6 +6,9 @@ import {Observable} from "rxjs";
 import {IMovie} from "../../componnets/models/movie.model";
 import {ITvSeries} from "../../componnets/models/tv-series.model";
 import {IMovieDetails} from "../../componnets/models/movie-details.model";
+import {ITvSeriesDetails} from "../../componnets/models/tvSeries-details.model";
+import {ITvSeriesSeasons} from "../../componnets/models/tvSeriesSeasons.model";
+import {ISearch} from "../../componnets/models/search.model";
 
 
 @Injectable({
@@ -41,6 +44,30 @@ export class HomeService {
 
   getMovieDetails(movieId: number): Observable<IMovieDetails> {
     return this.http.get<IMovieDetails>(`${apiBaseUrl}/movie/${movieId}`, {
+      headers: {
+        'Authorization': 'Bearer ' + token
+      }
+    })
+  }
+
+  getTvSeriesDetails(tvSeriesId: number): Observable<ITvSeriesDetails> {
+    return this.http.get<ITvSeriesDetails>(`${apiBaseUrl}tv/${tvSeriesId}`, {
+      headers: {
+        'Authorization': 'Bearer ' + token
+      }
+    })
+  }
+
+  getTvSeriesSeasons(tvSeriesId: number, seasonNum: number): Observable<ITvSeriesSeasons> {
+    return this.http.get<ITvSeriesSeasons>(`${apiBaseUrl}tv/${tvSeriesId}/season/${seasonNum}`, {
+      headers: {
+        'Authorization': 'Bearer ' + token
+      }
+    })
+  }
+
+  getSearchList(query: string): Observable<ISearch> {
+    return this.http.get<ISearch>(`${apiBaseUrl}search/multi?query=${query}`, {
       headers: {
         'Authorization': 'Bearer ' + token
       }

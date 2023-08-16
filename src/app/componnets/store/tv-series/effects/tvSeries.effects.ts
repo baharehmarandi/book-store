@@ -1,10 +1,18 @@
 import {Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {HomeService} from "../../../../modules/home/home.service";
-import {AiringTodayTvSeriesAction, OnTheAirTvSeriesAction, PopularTvSeriesActions, TopRatedTvSeriesAction} from "../actions/tv-series.actions";
+import {
+  AiringTodayTvSeriesAction,
+  OnTheAirTvSeriesAction,
+  PopularTvSeriesActions,
+  TopRatedTvSeriesAction,
+  TvSeriesDetailsActions, TvSeriesSeasonActions
+} from "../actions/tv-series.actions";
 import {catchError, map, of, switchMap} from "rxjs";
 import {ITvSeries} from "../../../models/tv-series.model";
 import {HttpErrorResponse} from "@angular/common/http";
+import {ITvSeriesDetails} from "../../../models/tvSeries-details.model";
+import {ITvSeriesSeasons} from "../../../models/tvSeriesSeasons.model";
 
 @Injectable()
 export class TvSeriesEffects {
@@ -52,7 +60,7 @@ export class TvSeriesEffects {
     return this.action$.pipe(
       ofType(TopRatedTvSeriesAction.loadTopRatedTvSeries),
       switchMap((action) => this.homeService.getTvSeriesList('top_rated',  action.page).pipe(
-        map((response: ITvSeries) => 
+        map((response: ITvSeries) =>
           TopRatedTvSeriesAction.loadTopRatedTvSeriesSuccess({payload: response.results, total: response.total_results})),
         catchError((error: HttpErrorResponse) => of(TopRatedTvSeriesAction.loadTopRatedTvSeriesFailure(error)))
           )),
@@ -60,4 +68,26 @@ export class TvSeriesEffects {
         )
       });
 
-    }
+  loadTvSeriesDetails$ = createEffect(() => {
+    return this.action$.pipe(
+      ofType(TvSeriesDetailsActions.loadTvSeriesDetails),
+      switchMap((action) => this.homeService.getTvSeriesDetails(action.id).pipe(
+        map((response: ITvSeriesDetails) =>
+          TvSeriesDetailsActions.loadTvSeriesDetailsSuccess({payload: response})),
+        catchError((error: HttpErrorResponse) => of(TvSeriesDetailsActions.loadTvSeriesDetailsFailure(error)))
+      )),
+      catchError((error: HttpErrorResponse) => of(TvSeriesDetailsActions.loadTvSeriesDetailsFailure(error)))
+    )
+  });
+
+  loadTvSeriesSeasons$ = createEffect(() => {
+    return this.action$.pipe(
+      ofType(TvSeriesSeasonActions.loadTvSeriesSeason),
+      switchMap((action) => this.homeService.getTvSeriesSeasons(action.id, action.seasonNum).pipe(
+        map((response: ITvSeriesSeasons) => TvSeriesSeasonActions.loadTvSeriesSeasonSuccess({payload: response})),
+      catchError((error: HttpErrorResponse) => of(TvSeriesSeasonActions.loadTvSeriesSeasonFailure(error)))
+      )),
+      catchError((error: HttpErrorResponse) => of(TvSeriesSeasonActions.loadTvSeriesSeasonFailure(error)))
+    )
+  });
+}

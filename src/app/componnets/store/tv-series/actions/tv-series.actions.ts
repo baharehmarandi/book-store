@@ -1,6 +1,8 @@
 import {createActionGroup, props} from "@ngrx/store";
 import {ITvSeriesResult} from "../../../models/tv-series.model";
 import {HttpErrorResponse} from "@angular/common/http";
+import {ITvSeriesDetails} from "../../../models/tvSeries-details.model";
+import {ITvSeriesSeasons} from "../../../models/tvSeriesSeasons.model";
 
 export const PopularTvSeriesActions = createActionGroup({
   source: 'PopularTvSeries',
@@ -35,5 +37,23 @@ export const TopRatedTvSeriesAction = createActionGroup({
     'Load TopRatedTvSeries': props<{page: number}>(),
     'Load TopRatedTvSeries Success': props<{payload:ITvSeriesResult[], total: number}>(),
     'Load TopRatedTvSeries Failure': props<{error: HttpErrorResponse}>()
+  }
+})
+
+export const TvSeriesDetailsActions = createActionGroup({
+  source: 'TvSeriesDetails',
+  events: {
+    'Load TvSeriesDetails': props<{id: number}>(),
+    'Load TvSeriesDetails Success': props<{payload: ITvSeriesDetails}>(),
+    'Load TvSeriesDetails Failure': props<{error: HttpErrorResponse}>(),
+  }
+})
+
+export const TvSeriesSeasonActions = createActionGroup({
+  source: 'TvSeriesSeason',
+  events: {
+    'Load TvSeriesSeason': props<{id: number, seasonNum: number}>(),
+    'Load TvSeriesSeason Success': props<{payload: ITvSeriesSeasons}>(),
+    'Load TvSeriesSeason Failure': props<{error: HttpErrorResponse}>(),
   }
 })
