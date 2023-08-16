@@ -3,7 +3,7 @@
 <ng-container *ngIf="tvSeriesDetails$ | async as tvSeriesDetails">
   <div class="container d-flex flex-column md:flex-row">
     <div class="flex flex-column">
-      <div class="flex flex-row">
+      <div class="flex flex-column md:flex-row">
         <div class="flex flex-column col-5">
           <p-image width="100%" [src]="imageBaseUrl + tvSeriesDetails.poster_path" alt="Image"></p-image>
         </div>
